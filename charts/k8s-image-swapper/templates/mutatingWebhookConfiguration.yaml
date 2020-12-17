@@ -24,7 +24,7 @@ webhooks:
         name: {{ template "k8s-image-swapper.fullname" $ }}
         path: /webhook
       {{- else }}
-      url: {{ .Values.dev.url }}
+      url: {{ .Values.dev.webhookURL }}
       caBundle: ""
       {{- end }}
     admissionReviewVersions: ["v1beta1"]
