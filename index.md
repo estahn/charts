@@ -1,6 +1,10 @@
-# estahn's Helm Repository
+# estahn's Helm Chart Repository
 
-Add the helm repository:
+[![](https://github.com/estahn/charts/workflows/Release%20Charts/badge.svg)](https://github.com/estahn/charts/actions)
+[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/estahn)](https://artifacthub.io/packages/search?repo=estahn)
+
+
+Add the helm chart repository:
 
 ```bash
 helm repo add estahn https://estahn.github.io/charts/
