@@ -1,0 +1,24 @@
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.3.4
+      with:
+        fetch-depth: 0
+    - uses: actions/setup-python@v2.1.4
+    - uses: actions/setup-node@v2.1.4
+    - name: Install binaries
+      run: |
+        mkdir -p $GITHUB_WORKSPACE/bin
+        echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
+        curl -sSL https://github.com/norwoodj/helm-docs/releases/download/v0.15.0/helm-docs_0.15.0_Linux_x86_64.tar.gz | tar xvfz - --overwrite -C $GITHUB_WORKSPACE/bin
+    - uses: pre-commit/action@v2.0.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
