@@ -63,7 +63,7 @@
                                     "type": "object",
                                     "properties": {
                                         "accountId": {
-                                            "type": "string"
+                                            "type": "integer"
                                         },
                                         "region": {
                                             "type": "string"
