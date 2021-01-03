@@ -56,24 +56,17 @@
                 "target": {
                     "type": "object",
                     "properties": {
-                        "registry": {
-                            "type": "object",
-                            "properties": {
-                                "aws": {
-                                    "type": "object",
-                                    "properties": {
-                                        "accountId": {
-                                            "type": "integer"
-                                        },
-                                        "region": {
-                                            "type": "string"
-                                        }
+                            "aws": {
+                                "type": "object",
+                                "properties": {
+                                    "accountId": {
+                                        "type": "integer"
+                                    },
+                                    "region": {
+                                        "type": "string"
                                     }
                                 }
                             }
-                        },
-                        "type": {
-                            "type": "string"
                         }
                     }
                 }
