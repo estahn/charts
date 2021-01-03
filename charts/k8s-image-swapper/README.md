@@ -26,8 +26,8 @@ Mirror images into your own registry and swap image references automatically.
 | config.logFormat | string | `"console"` |  |
 | config.logLevel | string | `"debug"` |  |
 | config.source.filters[0].jmespath | string | `"obj.metadata.namespace == 'kube-system'"` |  |
-| config.target.registry.aws.accountId | int | `12345678` |  |
-| config.target.registry.aws.region | string | `"ap-southeast-2"` |  |
+| config.target.aws.accountId | int | `12345678` |  |
+| config.target.aws.region | string | `"ap-southeast-2"` |  |
 | config.target.type | string | `"aws"` |  |
 | dev.enabled | bool | `false` |  |
 | dev.webhookURL | string | `"https://xxx.ngrok.io"` |  |
