@@ -3,6 +3,31 @@ entries:
   k8s-image-swapper:
   - annotations:
       artifacthub.io/changes: |
+        - Change "config.target.registry.aws" to "config.target.aws"
+      artifacthub.io/images: |
+        - name: k8s-image-webhook
+          image: ghcr.io/estahn/k8s-image-swapper:1.0.0
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-01-04T02:38:55.946558189Z"
+    description: Mirror images into your own registry and swap image references automatically.
+    digest: e00386af190f58c24225db2cbfc1b2d283791b9e569796edf2665f00541df5b9
+    home: https://github.com/estahn/charts/tree/main/charts/k8s-image-swapper
+    keywords:
+    - kubernetes
+    - kubernetes-webhook
+    - golang
+    - mutating-webhook
+    maintainers:
+    - email: enrico.stahn@gmail.com
+      name: estahn
+    name: k8s-image-swapper
+    type: application
+    urls:
+    - https://github.com/estahn/charts/releases/download/k8s-image-swapper-0.2.5/k8s-image-swapper-0.2.5.tgz
+    version: 0.2.5
+  - annotations:
+      artifacthub.io/changes: |
         - Setting "config.target.registry.aws.accountId" is now of type integer
       artifacthub.io/images: |
         - name: k8s-image-webhook
