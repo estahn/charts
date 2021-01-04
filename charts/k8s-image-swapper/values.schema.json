@@ -1,214 +1,213 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "type": "object",
-    "properties": {
-        "affinity": {
-            "type": "object"
+  "$schema": "http://json-schema.org/schema#",
+  "properties": {
+    "affinity": {
+      "type": "object"
+    },
+    "autoscaling": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
         },
-        "autoscaling": {
-            "type": "object",
-            "properties": {
-                "enabled": {
-                    "type": "boolean"
-                },
-                "maxReplicas": {
-                    "type": "integer"
-                },
-                "minReplicas": {
-                    "type": "integer"
-                },
-                "targetCPUUtilizationPercentage": {
-                    "type": "integer"
-                }
-            }
+        "maxReplicas": {
+          "type": "integer"
         },
-        "awsSecretName": {
-            "type": "string"
+        "minReplicas": {
+          "type": "integer"
         },
-        "config": {
-            "type": "object",
-            "properties": {
-                "dryRun": {
-                    "type": "boolean"
-                },
-                "logFormat": {
+        "targetCPUUtilizationPercentage": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "awsSecretName": {
+      "type": "string"
+    },
+    "config": {
+      "properties": {
+        "dryRun": {
+          "type": "boolean"
+        },
+        "logFormat": {
+          "type": "string"
+        },
+        "logLevel": {
+          "type": "string"
+        },
+        "source": {
+          "properties": {
+            "filters": {
+              "items": {
+                "properties": {
+                  "jmespath": {
                     "type": "string"
+                  }
                 },
-                "logLevel": {
-                    "type": "string"
-                },
-                "source": {
-                    "type": "object",
-                    "properties": {
-                        "filters": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "jmespath": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "target": {
-                    "type": "object",
-                    "properties": {
-                            "aws": {
-                                "type": "object",
-                                "properties": {
-                                    "accountId": {
-                                        "type": "integer"
-                                    },
-                                    "region": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                "type": "object"
+              },
+              "type": "array"
             }
+          },
+          "type": "object"
         },
-        "dev": {
-            "type": "object",
-            "properties": {
-                "enabled": {
-                    "type": "boolean"
+        "target": {
+          "properties": {
+            "aws": {
+              "properties": {
+                "accountId": {
+                  "type": "integer"
                 },
-                "webhookURL": {
-                    "type": "string"
+                "region": {
+                  "type": "string"
                 }
+              },
+              "type": "object"
             }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "dev": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
         },
-        "fullnameOverride": {
-            "type": "string"
+        "webhookURL": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "fullnameOverride": {
+      "type": "string"
+    },
+    "image": {
+      "properties": {
+        "pullPolicy": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "type": "array"
+    },
+    "nameOverride": {
+      "type": "string"
+    },
+    "nodeSelector": {
+      "type": "object"
+    },
+    "patch": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
         },
         "image": {
-            "type": "object",
-            "properties": {
-                "pullPolicy": {
-                    "type": "string"
-                },
-                "repository": {
-                    "type": "string"
-                },
-                "tag": {
-                    "type": "string"
-                }
+          "properties": {
+            "pullPolicy": {
+              "type": "string"
+            },
+            "repository": {
+              "type": "string"
+            },
+            "tag": {
+              "type": "string"
             }
-        },
-        "imagePullSecrets": {
-            "type": "array"
-        },
-        "nameOverride": {
-            "type": "string"
+          },
+          "type": "object"
         },
         "nodeSelector": {
-            "type": "object"
-        },
-        "patch": {
-            "type": "object",
-            "properties": {
-                "enabled": {
-                    "type": "boolean"
-                },
-                "image": {
-                    "type": "object",
-                    "properties": {
-                        "pullPolicy": {
-                            "type": "string"
-                        },
-                        "repository": {
-                            "type": "string"
-                        },
-                        "tag": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "nodeSelector": {
-                    "type": "object"
-                },
-                "podAnnotations": {
-                    "type": "object"
-                },
-                "priorityClassName": {
-                    "type": "string"
-                },
-                "resources": {
-                    "type": "object"
-                }
-            }
+          "type": "object"
         },
         "podAnnotations": {
-            "type": "object"
+          "type": "object"
         },
-        "podSecurityContext": {
-            "type": "object"
-        },
-        "podSecurityPolicy": {
-            "type": "object",
-            "properties": {
-                "enabled": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "rbac": {
-            "type": "object",
-            "properties": {
-                "create": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "replicaCount": {
-            "type": "integer"
+        "priorityClassName": {
+          "type": "string"
         },
         "resources": {
-            "type": "object"
-        },
-        "securityContext": {
-            "type": "object"
-        },
-        "service": {
-            "type": "object",
-            "properties": {
-                "port": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string"
-                }
-            }
-        },
-        "serviceAccount": {
-            "type": "object",
-            "properties": {
-                "annotations": {
-                    "type": "object"
-                },
-                "create": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                }
-            }
-        },
-        "tolerations": {
-            "type": "array"
-        },
-        "webhook": {
-            "type": "object",
-            "properties": {
-                "failurePolicy": {
-                    "type": "string"
-                }
-            }
+          "type": "object"
         }
+      },
+      "type": "object"
+    },
+    "podAnnotations": {
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "type": "object"
+    },
+    "podSecurityPolicy": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "rbac": {
+      "properties": {
+        "create": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "replicaCount": {
+      "type": "integer"
+    },
+    "resources": {
+      "type": "object"
+    },
+    "securityContext": {
+      "type": "object"
+    },
+    "service": {
+      "properties": {
+        "port": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "serviceAccount": {
+      "properties": {
+        "annotations": {
+          "type": "object"
+        },
+        "create": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tolerations": {
+      "type": "array"
+    },
+    "webhook": {
+      "properties": {
+        "failurePolicy": {
+          "type": "string"
+        }
+      },
+      "type": "object"
     }
+  },
+  "type": "object"
 }
