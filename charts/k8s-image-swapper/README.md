@@ -40,7 +40,7 @@ Mirror images into your own registry and swap image references automatically.
 | patch.enabled | bool | `true` |  |
 | patch.image.pullPolicy | string | `"IfNotPresent"` |  |
 | patch.image.repository | string | `"jettech/kube-webhook-certgen"` |  |
-| patch.image.tag | string | `"v1.5.1"` |  |
+| patch.image.tag | string | `"v1.5.2"` |  |
 | patch.nodeSelector | object | `{}` |  |
 | patch.podAnnotations | object | `{}` |  |
 | patch.priorityClassName | string | `""` |  |
