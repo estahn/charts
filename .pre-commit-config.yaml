@@ -10,7 +10,7 @@ repos:
   - id: check-added-large-files
   - id: check-json
   - id: pretty-format-json
-    args: ['--autofix']
+    args: ['--autofix', '--top-keys', 'type']
   - id: check-merge-conflict
   - id: check-symlinks
   - id: check-yaml
