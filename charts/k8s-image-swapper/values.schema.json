@@ -1,10 +1,12 @@
 {
+  "type": "object",
   "$schema": "http://json-schema.org/schema#",
   "properties": {
     "affinity": {
       "type": "object"
     },
     "autoscaling": {
+      "type": "object",
       "properties": {
         "enabled": {
           "type": "boolean"
@@ -18,13 +20,13 @@
         "targetCPUUtilizationPercentage": {
           "type": "integer"
         }
-      },
-      "type": "object"
+      }
     },
     "awsSecretName": {
       "type": "string"
     },
     "config": {
+      "type": "object",
       "properties": {
         "dryRun": {
           "type": "boolean"
@@ -36,24 +38,26 @@
           "type": "string"
         },
         "source": {
+          "type": "object",
           "properties": {
             "filters": {
+              "type": "array",
               "items": {
+                "type": "object",
                 "properties": {
                   "jmespath": {
                     "type": "string"
                   }
-                },
-                "type": "object"
-              },
-              "type": "array"
+                }
+              }
             }
-          },
-          "type": "object"
+          }
         },
         "target": {
+          "type": "object",
           "properties": {
             "aws": {
+              "type": "object",
               "properties": {
                 "accountId": {
                   "type": "integer"
@@ -61,16 +65,14 @@
                 "region": {
                   "type": "string"
                 }
-              },
-              "type": "object"
+              }
             }
-          },
-          "type": "object"
+          }
         }
-      },
-      "type": "object"
+      }
     },
     "dev": {
+      "type": "object",
       "properties": {
         "enabled": {
           "type": "boolean"
@@ -78,13 +80,13 @@
         "webhookURL": {
           "type": "string"
         }
-      },
-      "type": "object"
+      }
     },
     "fullnameOverride": {
       "type": "string"
     },
     "image": {
+      "type": "object",
       "properties": {
         "pullPolicy": {
           "type": "string"
@@ -95,11 +97,11 @@
         "tag": {
           "type": "string"
         }
-      },
-      "type": "object"
+      }
     },
     "imagePullSecrets": {
-      "type": "array"
+      "type": "array",
+      "items": {}
     },
     "nameOverride": {
       "type": "string"
@@ -108,11 +110,13 @@
       "type": "object"
     },
     "patch": {
+      "type": "object",
       "properties": {
         "enabled": {
           "type": "boolean"
         },
         "image": {
+          "type": "object",
           "properties": {
             "pullPolicy": {
               "type": "string"
@@ -123,8 +127,7 @@
             "tag": {
               "type": "string"
             }
-          },
-          "type": "object"
+          }
         },
         "nodeSelector": {
           "type": "object"
@@ -138,8 +141,7 @@
         "resources": {
           "type": "object"
         }
-      },
-      "type": "object"
+      }
     },
     "podAnnotations": {
       "type": "object"
@@ -148,20 +150,20 @@
       "type": "object"
     },
     "podSecurityPolicy": {
+      "type": "object",
       "properties": {
         "enabled": {
           "type": "boolean"
         }
-      },
-      "type": "object"
+      }
     },
     "rbac": {
+      "type": "object",
       "properties": {
         "create": {
           "type": "boolean"
         }
-      },
-      "type": "object"
+      }
     },
     "replicaCount": {
       "type": "integer"
@@ -169,21 +171,37 @@
     "resources": {
       "type": "object"
     },
+    "secretReader": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "secretNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "securityContext": {
       "type": "object"
     },
     "service": {
+      "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
-        },
         "type": {
           "type": "string"
+        },
+        "port": {
+          "type": "integer"
         }
-      },
-      "type": "object"
+      }
     },
     "serviceAccount": {
+      "type": "object",
       "properties": {
         "annotations": {
           "type": "object"
@@ -194,20 +212,19 @@
         "name": {
           "type": "string"
         }
-      },
-      "type": "object"
+      }
     },
     "tolerations": {
-      "type": "array"
+      "type": "array",
+      "items": {}
     },
     "webhook": {
+      "type": "object",
       "properties": {
         "failurePolicy": {
           "type": "string"
         }
-      },
-      "type": "object"
+      }
     }
-  },
-  "type": "object"
+  }
 }

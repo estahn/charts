@@ -90,6 +90,15 @@ webhook:
 
 awsSecretName: ""
 
+# Private registries are supported via imagePullSecrets on Pods and ServiceAccounts.
+# k8s-image-swapper requires to read the secret containing the docker authentication details
+# and therefore needs to be granted additional permissions. By default the ClusterRole provides
+# access to all secrets in the cluster. By providing secret names via `secretReader.secretNames`
+# the access can be reduced to specific secrets.
+secretReader:
+  enabled: false
+  secretNames: []
+
 config:
   dryRun: true
 
