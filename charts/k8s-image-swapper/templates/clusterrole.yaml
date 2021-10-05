@@ -14,9 +14,9 @@ rules:
       - ""
     resources:
       - secrets
-    {{- if .Values.secretReader.secretNames -}}
+    {{- if .Values.secretReader.secretNames }}
     resourceNames:
-      {{ toYaml .Values.secretReader.secretNames | indent 6 }}
+      {{- toYaml .Values.secretReader.secretNames | nindent 6 }}
     {{- end }}
     verbs:
       - watch
