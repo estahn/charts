@@ -87,6 +87,8 @@ patch:
 
 webhook:
   failurePolicy: Ignore
+  namespaceSelector: {}
+  objectSelector: {}
 
 awsSecretName: ""
 

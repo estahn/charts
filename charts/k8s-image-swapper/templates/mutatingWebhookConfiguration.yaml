@@ -7,6 +7,10 @@ metadata:
 webhooks:
   - name: k8s-image-swapper.github.io
     failurePolicy: {{ .Values.webhook.failurePolicy }}
+    namespaceSelector:
+      {{- toYaml .Values.webhook.namespaceSelector | nindent 6 }}
+    objectSelector:
+      {{- toYaml .Values.webhook.objectSelector | nindent 6 }}
     rules:
       - apiGroups:
           - "*"
