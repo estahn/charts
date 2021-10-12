@@ -15,5 +15,5 @@ annotations:
   artifacthub.io/changes: |
     - "Initial version"
   artifacthub.io/images: |
-    - name: k8s-image-webhook
+    - name: go-httpbin
       image: mccutchen/go-httpbin:v2.2.2
