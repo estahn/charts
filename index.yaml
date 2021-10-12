@@ -1,5 +1,30 @@
 apiVersion: v1
 entries:
+  httpbingo:
+  - annotations:
+      artifacthub.io/changes: |
+        - "Initial version"
+      artifacthub.io/images: |
+        - name: go-httpbin
+          image: mccutchen/go-httpbin:v2.2.2
+    apiVersion: v2
+    appVersion: v2.2.2
+    created: "2021-10-12T05:12:43.837467316Z"
+    description: A reasonably complete and well-tested golang port of httpbin, with
+      zero dependencies outside the go stdlib.
+    digest: 4c4bc4d0682ae22c648f8869ab480e12d9fc55cf95acd570a90a2b4ecfbce70a
+    home: https://github.com/estahn/charts/tree/main/charts/httpbingo
+    keywords:
+    - httpbin
+    - tests
+    maintainers:
+    - email: enrico.stahn@gmail.com
+      name: estahn
+    name: httpbingo
+    type: application
+    urls:
+    - https://github.com/estahn/charts/releases/download/httpbingo-0.1.0/httpbingo-0.1.0.tgz
+    version: 0.1.0
   k8s-image-swapper:
   - annotations:
       artifacthub.io/changes: |
@@ -289,4 +314,4 @@ entries:
     urls:
     - https://github.com/estahn/charts/releases/download/k8s-image-swapper-0.1.0/k8s-image-swapper-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-06T01:39:31.757090656Z"
+generated: "2021-10-12T05:12:43.837503517Z"
