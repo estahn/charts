@@ -1,0 +1,19 @@
+apiVersion: v2
+name: httpbingo
+description: A reasonably complete and well-tested golang port of httpbin, with zero dependencies outside the go stdlib.
+type: application
+version: 0.1.0
+appVersion: "v2.2.2"
+home: https://github.com/estahn/charts/tree/main/charts/httpbingo
+keywords:
+  - httpbin
+  - tests
+maintainers:
+  - email: enrico.stahn@gmail.com
+    name: estahn
+annotations:
+  artifacthub.io/changes: |
+    - "Initial version"
+  artifacthub.io/images: |
+    - name: k8s-image-webhook
+      image: mccutchen/go-httpbin:v2.2.2
