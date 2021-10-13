@@ -28,6 +28,31 @@ entries:
   k8s-image-swapper:
   - annotations:
       artifacthub.io/changes: |
+        - "add reinvocationPolicy option to the webhook congiuration"
+      artifacthub.io/images: |
+        - name: k8s-image-webhook
+          image: ghcr.io/estahn/k8s-image-swapper:1.1.0
+    apiVersion: v2
+    appVersion: 1.1.0
+    created: "2021-10-13T01:46:59.351433941Z"
+    description: Mirror images into your own registry and swap image references automatically.
+    digest: 1d1c3a14f808ffff45ef1a7d902f6e7b976def22db4ad111ed863c1f1e42df17
+    home: https://github.com/estahn/charts/tree/main/charts/k8s-image-swapper
+    keywords:
+    - kubernetes
+    - kubernetes-webhook
+    - golang
+    - mutating-webhook
+    maintainers:
+    - email: enrico.stahn@gmail.com
+      name: estahn
+    name: k8s-image-swapper
+    type: application
+    urls:
+    - https://github.com/estahn/charts/releases/download/k8s-image-swapper-0.3.3/k8s-image-swapper-0.3.3.tgz
+    version: 0.3.3
+  - annotations:
+      artifacthub.io/changes: |
         - "add webhook namespace and object selectors"
       artifacthub.io/images: |
         - name: k8s-image-webhook
@@ -314,4 +339,4 @@ entries:
     urls:
     - https://github.com/estahn/charts/releases/download/k8s-image-swapper-0.1.0/k8s-image-swapper-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-12T05:12:43.837503517Z"
+generated: "2021-10-13T01:46:59.351528742Z"
