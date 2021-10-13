@@ -223,6 +223,9 @@
       "properties": {
         "failurePolicy": {
           "type": "string"
+        },
+        "reinvocationPolicy": {
+          "type": "string"
         }
       }
     }
