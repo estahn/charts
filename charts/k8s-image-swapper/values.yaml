@@ -87,6 +87,7 @@ patch:
 
 webhook:
   failurePolicy: Ignore
+  reinvocationPolicy: Never
   namespaceSelector: {}
   objectSelector: {}
 

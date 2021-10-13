@@ -7,6 +7,7 @@ metadata:
 webhooks:
   - name: k8s-image-swapper.github.io
     failurePolicy: {{ .Values.webhook.failurePolicy }}
+    reinvocationPolicy: {{ .Values.webhook.reinvocationPolicy }}
     namespaceSelector:
       {{- toYaml .Values.webhook.namespaceSelector | nindent 6 }}
     objectSelector:
