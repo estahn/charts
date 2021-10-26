@@ -5,7 +5,7 @@ changelog:
     authors:
       - octocat
   categories:
-    - title: 🛠 Breaking Changes
+    - title: 🧨 Breaking Changes
       labels:
         - Semver-Major
         - breaking-change
@@ -17,6 +17,6 @@ changelog:
       labels:
         - Semver-Minor
         - bugfix
-    - title: Other Changes
+    - title: 🛠 Other Changes
       labels:
         - "*"
