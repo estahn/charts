@@ -15,7 +15,7 @@ maintainers:
     name: estahn
 annotations:
   artifacthub.io/changes: |
-    - "config.target.aws.accountId changed from integer to string"
+    - "add permissions to ClusterRole to allow reading of service accounts"
   artifacthub.io/images: |
     - name: k8s-image-webhook
       image: ghcr.io/estahn/k8s-image-swapper:1.1.0
