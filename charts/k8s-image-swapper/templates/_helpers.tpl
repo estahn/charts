@@ -47,7 +47,7 @@ Selector labels
 */}}
 {{- define "k8s-image-swapper.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "k8s-image-swapper.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/instance: {{ .altReleaseName | default .Release.Name }}
 {{- end }}
 
 {{/*

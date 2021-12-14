@@ -1,4 +1,7 @@
 {{- if .Values.patch.enabled }}
+{{ $fullName := include "k8s-image-swapper.fullname" . }}
+{{ $altReleaseName := printf "%s-%s" $fullName "patch" }}
+{{- $combineDict := dict "Values" .Values "Chart" .Chart "Release" .Release "altReleaseName" $altReleaseName }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -7,7 +10,7 @@ metadata:
     "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
   labels:
-    {{- include "k8s-image-swapper.labels" . | nindent 4 }}
+    {{- include "k8s-image-swapper.labels" $combineDict | nindent 4 }}
 spec:
   {{- if .Capabilities.APIVersions.Has "batch/v1alpha1" }}
   # Alpha feature since k8s 1.12
@@ -21,7 +24,7 @@ spec:
 {{ toYaml .  | indent 8 }}
 {{- end }}
       labels:
-        {{- include "k8s-image-swapper.labels" . | nindent 8 }}
+        {{- include "k8s-image-swapper.labels" $combineDict | nindent 8 }}
     spec:
       {{- if .Values.patch.priorityClassName }}
       priorityClassName: {{ .Values.patch.priorityClassName }}
