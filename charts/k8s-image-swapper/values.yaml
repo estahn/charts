@@ -73,6 +73,8 @@ tolerations: []
 
 affinity: {}
 
+hostNetwork: false
+
 # Will generate the TLS certificate and patch the webhook
 patch:
   enabled: true
