@@ -28,6 +28,31 @@ entries:
   k8s-image-swapper:
   - annotations:
       artifacthub.io/changes: |
+        - "allow to modify hostnetwork spec definition in deployment"
+      artifacthub.io/images: |
+        - name: k8s-image-webhook
+          image: ghcr.io/estahn/k8s-image-swapper:1.1.0
+    apiVersion: v2
+    appVersion: 1.1.0
+    created: "2022-07-07T12:57:16.580032035Z"
+    description: Mirror images into your own registry and swap image references automatically.
+    digest: 5fa33874f3d35c62805c6ee94eb21797687cdfb047887aa490a21664a30a09e0
+    home: https://github.com/estahn/charts/tree/main/charts/k8s-image-swapper
+    keywords:
+    - kubernetes
+    - kubernetes-webhook
+    - golang
+    - mutating-webhook
+    maintainers:
+    - email: enrico.stahn@gmail.com
+      name: estahn
+    name: k8s-image-swapper
+    type: application
+    urls:
+    - https://github.com/estahn/charts/releases/download/k8s-image-swapper-1.0.2/k8s-image-swapper-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/changes: |
         - "add permissions to ClusterRole to allow reading of service accounts"
       artifacthub.io/images: |
         - name: k8s-image-webhook
@@ -389,4 +414,4 @@ entries:
     urls:
     - https://github.com/estahn/charts/releases/download/k8s-image-swapper-0.1.0/k8s-image-swapper-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-01T19:59:44.49575036Z"
+generated: "2022-07-07T12:57:16.580161535Z"
