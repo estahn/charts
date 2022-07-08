@@ -56,7 +56,7 @@ spec:
             - --tls-key-file=/usr/local/certificates/key
           ports:
             - name: https
-              containerPort: 8443
+              containerPort: {{ .Values.containerPort }}
               protocol: TCP
           livenessProbe:
             httpGet:

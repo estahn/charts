@@ -71,6 +71,9 @@
         }
       }
     },
+    "containerPort": {
+      "type": "integer"
+    },
     "dev": {
       "type": "object",
       "properties": {
