@@ -54,6 +54,7 @@ spec:
             - --config=/.k8s-image-swapper.yaml
             - --tls-cert-file=/usr/local/certificates/cert
             - --tls-key-file=/usr/local/certificates/key
+            - --listen-address=:{{ .Values.containerPort }}
           ports:
             - name: https
               containerPort: {{ .Values.containerPort }}
