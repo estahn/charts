@@ -149,6 +149,14 @@
         }
       }
     },
+    "certmanager": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
     "podAnnotations": {
       "type": "object"
     },

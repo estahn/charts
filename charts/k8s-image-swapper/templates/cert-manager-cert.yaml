@@ -1,0 +1,14 @@
+{{- if .Values.certmanager.enabled -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "k8s-image-swapper.fullname" . }}-cert
+spec:
+  secretName: {{ include "k8s-image-swapper.fullname" . }}-cert
+  dnsNames:
+  - {{ include "k8s-image-swapper.fullname" . }}.{{ .Release.Namespace }}.svc
+  issuerRef:
+    name: {{ include "k8s-image-swapper.fullname" . }}-issuer
+{{- end -}}
+
+
