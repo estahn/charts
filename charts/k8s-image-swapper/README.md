@@ -11,7 +11,6 @@ Mirror images into your own registry and swap image references automatically.
 | Name | Email | Url |
 | ---- | ------ | --- |
 | estahn | <enrico.stahn@gmail.com> |  |
-| tcyran | <tcyran@gmail.com> |  |
 
 ## Values
 

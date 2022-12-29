@@ -13,8 +13,6 @@ keywords:
 maintainers:
   - email: enrico.stahn@gmail.com
     name: estahn
-  - email: tcyran@gmail.com
-    name: tcyran
 annotations:
   artifacthub.io/changes: |
     - "Add support of cert-manger to handle TLS certs"
