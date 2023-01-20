@@ -13,7 +13,7 @@ maintainers:
     name: estahn
 annotations:
   artifacthub.io/changes: |
-    - "Initial version"
+    - "Update README.md"
   artifacthub.io/images: |
     - name: go-httpbin
       image: mccutchen/go-httpbin:v2.2.2
