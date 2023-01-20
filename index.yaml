@@ -3,6 +3,30 @@ entries:
   httpbingo:
   - annotations:
       artifacthub.io/changes: |
+        - "Update README.md"
+      artifacthub.io/images: |
+        - name: go-httpbin
+          image: mccutchen/go-httpbin:v2.2.2
+    apiVersion: v2
+    appVersion: v2.2.2
+    created: "2023-01-20T16:32:24.266364309Z"
+    description: A reasonably complete and well-tested golang port of httpbin, with
+      zero dependencies outside the go stdlib.
+    digest: 545b7ade4bcac0fa18cb42dd494a272c63c2c22fe4f7cf1b96e1ed7812d42ced
+    home: https://github.com/estahn/charts/tree/main/charts/httpbingo
+    keywords:
+    - httpbin
+    - tests
+    maintainers:
+    - email: enrico.stahn@gmail.com
+      name: estahn
+    name: httpbingo
+    type: application
+    urls:
+    - https://github.com/estahn/charts/releases/download/httpbingo-0.1.1/httpbingo-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      artifacthub.io/changes: |
         - "Initial version"
       artifacthub.io/images: |
         - name: go-httpbin
@@ -26,6 +50,31 @@ entries:
     - https://github.com/estahn/charts/releases/download/httpbingo-0.1.0/httpbingo-0.1.0.tgz
     version: 0.1.0
   k8s-image-swapper:
+  - annotations:
+      artifacthub.io/changes: |
+        - "Update README.md"
+      artifacthub.io/images: |
+        - name: k8s-image-webhook
+          image: ghcr.io/estahn/k8s-image-swapper:1.3.0
+    apiVersion: v2
+    appVersion: 1.3.0
+    created: "2023-01-20T16:32:24.425210352Z"
+    description: Mirror images into your own registry and swap image references automatically.
+    digest: 294e7c65b07d8d48b3510118d087f6a257cf478f31c1d8cd0bab92a5523b8b18
+    home: https://github.com/estahn/charts/tree/main/charts/k8s-image-swapper
+    keywords:
+    - kubernetes
+    - kubernetes-webhook
+    - golang
+    - mutating-webhook
+    maintainers:
+    - email: enrico.stahn@gmail.com
+      name: estahn
+    name: k8s-image-swapper
+    type: application
+    urls:
+    - https://github.com/estahn/charts/releases/download/k8s-image-swapper-1.1.1/k8s-image-swapper-1.1.1.tgz
+    version: 1.1.1
   - annotations:
       artifacthub.io/changes: |
         - "Bump to app version 1.3.0"
@@ -489,4 +538,4 @@ entries:
     urls:
     - https://github.com/estahn/charts/releases/download/k8s-image-swapper-0.1.0/k8s-image-swapper-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-08T09:24:29.160590822Z"
+generated: "2023-01-20T16:32:24.425459559Z"
