@@ -23,4 +23,4 @@ jobs:
     - run: helm-docs
     - uses: peter-evans/create-pull-request@v4
       with:
-        base: ${{ env.GITHUB_BASE_REF }}
+        base: ${{ github.head_ref }}
