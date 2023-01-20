@@ -24,3 +24,9 @@ jobs:
         curl -sSL https://github.com/norwoodj/helm-docs/releases/download/v${{env.HELM_DOCS_VERSION}}/helm-docs_${{env.HELM_DOCS_VERSION}}_Linux_x86_64.tar.gz | tar xvfz - --overwrite -C $GITHUB_WORKSPACE/bin
     - run: helm-docs
     - uses: peter-evans/create-pull-request@v4
+      with:
+        title: Updated helm-docs for ${{ github.head_ref }}
+        base: ${{ github.head_ref }}
+        branch: helm-docs-${{ github.head_ref }}
+        add-paths: |
+          charts/**/README.md
