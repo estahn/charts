@@ -6,6 +6,10 @@ on:
 env:
   HELM_DOCS_VERSION: "1.11.0"
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   helm-docs:
     runs-on: ubuntu-latest
