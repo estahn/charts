@@ -23,4 +23,6 @@ jobs:
     - run: helm-docs
     - uses: peter-evans/create-pull-request@v4
       with:
+        title: Updated helm-docs for ${{ github.head_ref }}
         base: ${{ github.head_ref }}
+        branch: helm-docs-${{ github.head_ref }}
