@@ -16,7 +16,7 @@ jobs:
       with:
         fetch-depth: 0
     - uses: actions/setup-python@v4.5.0
-    - uses: actions/setup-node@v3.4.1
+    - uses: actions/setup-node@v3.6.0
     - name: Install binaries
       run: |
         mkdir -p $GITHUB_WORKSPACE/bin
