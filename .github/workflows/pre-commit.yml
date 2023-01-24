@@ -26,5 +26,6 @@ jobs:
 
     # Used to commit generated helm-docs
     - uses: stefanzweifel/git-auto-commit-action@v4
+      if: failure()
       with:
         file_pattern: 'charts/**/README.md'
