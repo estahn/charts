@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.1.1](https://img.shields.io/badge/Version-1.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.3.0](https://img.shields.io/badge/AppVersion-1.3.0-informational?style=flat-square)
+![Version: 1.1.2](https://img.shields.io/badge/Version-1.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.3.0](https://img.shields.io/badge/AppVersion-1.3.0-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -41,8 +41,8 @@ Mirror images into your own registry and swap image references automatically.
 | nodeSelector | object | `{}` |  |
 | patch.enabled | bool | `true` |  |
 | patch.image.pullPolicy | string | `"IfNotPresent"` |  |
-| patch.image.repository | string | `"jettech/kube-webhook-certgen"` |  |
-| patch.image.tag | string | `"v1.5.2"` |  |
+| patch.image.repository | string | `"k8s.gcr.io/ingress-nginx/kube-webhook-certgen"` |  |
+| patch.image.tag | string | `"v1.3.0"` |  |
 | patch.nodeSelector | object | `{}` |  |
 | patch.podAnnotations | object | `{}` |  |
 | patch.priorityClassName | string | `""` |  |
