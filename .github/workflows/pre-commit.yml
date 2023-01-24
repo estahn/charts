@@ -23,3 +23,8 @@ jobs:
         echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
         curl -sSL https://github.com/norwoodj/helm-docs/releases/download/v${{env.HELM_DOCS_VERSION}}/helm-docs_${{env.HELM_DOCS_VERSION}}_Linux_x86_64.tar.gz | tar xvfz - --overwrite -C $GITHUB_WORKSPACE/bin
     - uses: pre-commit/action@v3.0.0
+
+    # Used to commit generated helm-docs
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        file_pattern: 'charts/**/README.md'
