@@ -10,5 +10,3 @@ spec:
   issuerRef:
     name: {{ include "k8s-image-swapper.fullname" . }}-issuer
 {{- end -}}
-
-
