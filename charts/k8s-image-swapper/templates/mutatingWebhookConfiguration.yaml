@@ -4,6 +4,10 @@ metadata:
   name:  {{ template "k8s-image-swapper.fullname" . }}
   labels:
     {{- include "k8s-image-swapper.labels" . | nindent 4 }}
+  {{- if .Values.certmanager.enabled }}
+  annotations:
+    cert-manager.io/inject-ca-from: {{ .Release.Namespace }}/{{ include "k8s-image-swapper.fullname" . }}-cert
+  {{- end }}
 webhooks:
   - name: k8s-image-swapper.github.io
     failurePolicy: {{ .Values.webhook.failurePolicy }}

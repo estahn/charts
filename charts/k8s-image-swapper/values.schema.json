@@ -25,6 +25,14 @@
     "awsSecretName": {
       "type": "string"
     },
+    "certmanager": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
     "config": {
       "type": "object",
       "properties": {
