@@ -81,8 +81,8 @@ hostNetwork: false
 patch:
   enabled: true
   image:
-    repository: jettech/kube-webhook-certgen
-    tag: v1.5.2
+    repository: k8s.gcr.io/ingress-nginx/kube-webhook-certgen
+    tag: v1.3.0
     pullPolicy: IfNotPresent
   priorityClassName: ""
   podAnnotations: {}
