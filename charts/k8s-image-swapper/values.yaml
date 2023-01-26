@@ -16,6 +16,9 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# -- Labels that will be added on all the resources (not in selectors)
+commonLabels: {}
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
