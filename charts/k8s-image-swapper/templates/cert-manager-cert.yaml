@@ -3,6 +3,8 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: {{ include "k8s-image-swapper.fullname" . }}-cert
+  labels:
+    {{- include "k8s-image-swapper.labels" . | nindent 4 }}
 spec:
   secretName: {{ include "k8s-image-swapper.fullname" . }}-cert
   dnsNames:
