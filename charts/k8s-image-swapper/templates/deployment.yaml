@@ -19,11 +19,15 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "k8s-image-swapper.selectorLabels" . | nindent 8 }}
+        # Includes selectorLabels
+        {{- include "k8s-image-swapper.labels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.hostNetwork }}
+      hostNetwork: {{ .Values.hostNetwork }}
       {{- end }}
       serviceAccountName: {{ include "k8s-image-swapper.serviceAccountName" . }}
       securityContext:
@@ -49,11 +53,17 @@ spec:
           {{- end }}
           args:
             - --config=/.k8s-image-swapper.yaml
+            {{- if .Values.certmanager.enabled }}
+            - --tls-cert-file=/usr/local/certificates/tls.crt
+            - --tls-key-file=/usr/local/certificates/tls.key
+            {{- else }}
             - --tls-cert-file=/usr/local/certificates/cert
             - --tls-key-file=/usr/local/certificates/key
+            {{- end }}
+            - --listen-address=:{{ .Values.containerPort }}
           ports:
             - name: https
-              containerPort: 8443
+              containerPort: {{ .Values.containerPort }}
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -72,7 +82,7 @@ spec:
               subPath: config.yaml
               mountPath: /.k8s-image-swapper.yaml
               readOnly: true
-            {{- if .Values.patch.enabled }}
+            {{- if or .Values.patch.enabled .Values.certmanager.enabled }}
             - name: webhook-cert
               mountPath: "/usr/local/certificates/"
               readOnly: true
@@ -85,6 +95,11 @@ spec:
         - name: webhook-cert
           secret:
             secretName: {{ template "k8s-image-swapper.fullname". }}
+        {{- end }}
+        {{- if .Values.certmanager.enabled }}
+        - name: webhook-cert
+          secret:
+            secretName: {{ template "k8s-image-swapper.fullname". }}-cert
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

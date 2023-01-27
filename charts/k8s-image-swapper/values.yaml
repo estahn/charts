@@ -10,9 +10,14 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+containerPort: 8443
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+# -- Labels that will be added on all the resources (not in selectors)
+commonLabels: {}
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -77,17 +82,23 @@ tolerations: []
 
 affinity: {}
 
+hostNetwork: false
+
 # Will generate the TLS certificate and patch the webhook
 patch:
   enabled: true
   image:
-    repository: jettech/kube-webhook-certgen
-    tag: v1.5.2
+    repository: k8s.gcr.io/ingress-nginx/kube-webhook-certgen
+    tag: v1.3.0
     pullPolicy: IfNotPresent
   priorityClassName: ""
   podAnnotations: {}
   nodeSelector: {}
   resources: {}
+
+# You can use cert-manager to handle TLS cert creation and putting it into webhook cfg
+certmanager:
+  enabled: false
 
 webhook:
   failurePolicy: Ignore

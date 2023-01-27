@@ -25,6 +25,17 @@
     "awsSecretName": {
       "type": "string"
     },
+    "certmanager": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "commonLabels": {
+      "type": "object"
+    },
     "config": {
       "type": "object",
       "properties": {
@@ -71,6 +82,9 @@
         }
       }
     },
+    "containerPort": {
+      "type": "integer"
+    },
     "dev": {
       "type": "object",
       "properties": {
@@ -84,6 +98,9 @@
     },
     "fullnameOverride": {
       "type": "string"
+    },
+    "hostNetwork": {
+      "type": "boolean"
     },
     "image": {
       "type": "object",
