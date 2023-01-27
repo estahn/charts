@@ -3,6 +3,8 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: {{ include "k8s-image-swapper.fullname" . }}-issuer
+  labels:
+    {{- include "k8s-image-swapper.labels" . | nindent 4 }}
 spec:
   selfSigned: {}
 {{- end -}}

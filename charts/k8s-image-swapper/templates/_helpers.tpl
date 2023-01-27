@@ -40,6 +40,11 @@ helm.sh/chart: {{ include "k8s-image-swapper.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.commonLabels }}
+{{- range $index, $content := .Values.commonLabels }}
+{{ $index }}: {{ tpl $content $ }}
+{{- end }}
+{{- end }}
 {{- end }}
 
 {{/*
