@@ -52,6 +52,31 @@ entries:
   k8s-image-swapper:
   - annotations:
       artifacthub.io/changes: |
+        - "k8s-image-swapper v1.4.1"
+      artifacthub.io/images: |
+        - name: k8s-image-webhook
+          image: ghcr.io/estahn/k8s-image-swapper:1.4.1
+    apiVersion: v2
+    appVersion: 1.4.1
+    created: "2023-01-30T09:28:38.788181049Z"
+    description: Mirror images into your own registry and swap image references automatically.
+    digest: a6684e859ef1f7fb67c43a6680d00270c73368ed3311b3d21ec47c3fa4c9bfa7
+    home: https://github.com/estahn/charts/tree/main/charts/k8s-image-swapper
+    keywords:
+    - kubernetes
+    - kubernetes-webhook
+    - golang
+    - mutating-webhook
+    maintainers:
+    - email: enrico.stahn@gmail.com
+      name: estahn
+    name: k8s-image-swapper
+    type: application
+    urls:
+    - https://github.com/estahn/charts/releases/download/k8s-image-swapper-1.6.0/k8s-image-swapper-1.6.0.tgz
+    version: 1.6.0
+  - annotations:
+      artifacthub.io/changes: |
         - "Ensure the patch jobs have different labels/label values than the deployment so HPA does not consider the patch jobs in its calculations creating errors."
       artifacthub.io/images: |
         - name: k8s-image-webhook
@@ -688,4 +713,4 @@ entries:
     urls:
     - https://github.com/estahn/charts/releases/download/k8s-image-swapper-0.1.0/k8s-image-swapper-0.1.0.tgz
     version: 0.1.0
-generated: "2023-01-30T09:21:26.244255159Z"
+generated: "2023-01-30T09:28:38.788756146Z"
