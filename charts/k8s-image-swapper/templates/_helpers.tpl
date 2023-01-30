@@ -53,6 +53,11 @@ Selector labels
 {{- define "k8s-image-swapper.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "k8s-image-swapper.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- if contains "/job-patch/" .Template.Name }}
+app.kubernetes.io/component: job-patch
+{{- else }}
+app.kubernetes.io/component: app
+{{- end }}
 {{- end }}
 
 {{/*
