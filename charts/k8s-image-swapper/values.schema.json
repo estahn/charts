@@ -117,8 +117,7 @@
       }
     },
     "imagePullSecrets": {
-      "type": "array",
-      "items": {}
+      "type": "array"
     },
     "nameOverride": {
       "type": "string"
@@ -201,16 +200,12 @@
     },
     "secretReader": {
       "type": "object",
-      "additionalProperties": false,
       "properties": {
         "enabled": {
           "type": "boolean"
         },
         "secretNames": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "type": "array"
         }
       }
     },
@@ -242,15 +237,34 @@
         }
       }
     },
+    "sourceRegistryCA": {
+      "type": "object",
+      "properties": {
+        "mount": {
+          "type": "boolean"
+        },
+        "mounts": {
+          "type": "object"
+        },
+        "volumes": {
+          "type": "object"
+        }
+      }
+    },
     "tolerations": {
-      "type": "array",
-      "items": {}
+      "type": "array"
     },
     "webhook": {
       "type": "object",
       "properties": {
         "failurePolicy": {
           "type": "string"
+        },
+        "namespaceSelector": {
+          "type": "object"
+        },
+        "objectSelector": {
+          "type": "object"
         },
         "reinvocationPolicy": {
           "type": "string"

@@ -19,6 +19,15 @@ fullnameOverride: ""
 # -- Labels that will be added on all the resources (not in selectors)
 commonLabels: {}
 
+
+sourceRegistryCA:
+  # Enable mount
+  mount: false
+  # Kubernetes volume object
+  volumes: {}
+  # Kubernetes volumeMount object
+  mounts: {}
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
