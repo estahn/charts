@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.6.1](https://img.shields.io/badge/Version-1.6.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.1](https://img.shields.io/badge/AppVersion-1.4.1-informational?style=flat-square)
+![Version: 1.6.2](https://img.shields.io/badge/Version-1.6.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.1](https://img.shields.io/badge/AppVersion-1.4.1-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -65,6 +65,9 @@ Mirror images into your own registry and swap image references automatically.
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| sourceRegistryCA.mount | bool | `false` |  |
+| sourceRegistryCA.mounts | object | `{}` |  |
+| sourceRegistryCA.volumes | object | `{}` |  |
 | tolerations | list | `[]` |  |
 | webhook.failurePolicy | string | `"Ignore"` |  |
 | webhook.namespaceSelector | object | `{}` |  |

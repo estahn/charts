@@ -86,6 +86,9 @@ spec:
               mountPath: "/usr/local/certificates/"
               readOnly: true
             {{- end }}
+            {{- if .Values.sourceRegistryCA.mount }}
+            {{- toYaml .Values.sourceRegistryCA.mounts | nindent 12 }}
+            {{- end }}
       volumes:
         - name: {{ include "k8s-image-swapper.fullname" . }}
           configMap:
@@ -99,6 +102,9 @@ spec:
         - name: webhook-cert
           secret:
             secretName: {{ template "k8s-image-swapper.fullname". }}-cert
+        {{- end }}
+        {{- if .Values.sourceRegistryCA.mount }}
+        {{- toYaml .Values.sourceRegistryCA.volumes | nindent 8}}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
