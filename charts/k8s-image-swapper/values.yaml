@@ -12,6 +12,8 @@ image:
 
 containerPort: 8443
 
+kubeVersionOverride: ""
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

@@ -70,3 +70,21 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Return the appropriate apiVersion for pod disruption budget
+*/}}
+{{- define "k8s-image-swapper.podDisruptionBudget.apiVersion" -}}
+{{- if semverCompare "<1.21-0" (include "k8s-image-swapper.kubeVersion" $) -}}
+{{- print "policy/v1beta1" -}}
+{{- else -}}
+{{- print "policy/v1" -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Return the target Kubernetes version
+*/}}
+{{- define "k8s-image-swapper.kubeVersion" -}}
+  {{- default .Capabilities.KubeVersion.Version .Values.kubeVersionOverride }}
+{{- end -}}
