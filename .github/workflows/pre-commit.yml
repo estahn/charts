@@ -13,7 +13,7 @@ jobs:
       with:
         fetch-depth: 0
     - uses: actions/setup-python@v4.6.1
-    - uses: actions/setup-node@v3.6.0
+    - uses: actions/setup-node@v3.7.0
     - uses: pre-commit/action@v3.0.0
       env:
         SKIP: helm-docs
