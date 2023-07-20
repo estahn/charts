@@ -85,6 +85,14 @@
     "containerPort": {
       "type": "integer"
     },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object"
+        }
+      }
+    },
     "dev": {
       "type": "object",
       "properties": {
