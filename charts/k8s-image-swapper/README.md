@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.6.2](https://img.shields.io/badge/Version-1.6.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.1](https://img.shields.io/badge/AppVersion-1.4.1-informational?style=flat-square)
+![Version: 1.7.0](https://img.shields.io/badge/Version-1.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.1](https://img.shields.io/badge/AppVersion-1.4.1-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -31,6 +31,7 @@ Mirror images into your own registry and swap image references automatically.
 | config.target.aws.accountId | string | `"12345678"` |  |
 | config.target.aws.region | string | `"ap-southeast-2"` |  |
 | containerPort | int | `8443` |  |
+| deployment.annotations | object | `{}` |  |
 | dev.enabled | bool | `false` |  |
 | dev.webhookURL | string | `"https://xxx.ngrok.io"` |  |
 | fullnameOverride | string | `""` |  |
