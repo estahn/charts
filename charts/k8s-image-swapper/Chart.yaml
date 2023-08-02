@@ -15,7 +15,7 @@ maintainers:
     name: estahn
 annotations:
   artifacthub.io/changes: |
-    - "Allow to set annotations for deployment"
+    - "Allow configure AWS secret and deploy extraManifests"
   artifacthub.io/images: |
     - name: k8s-image-webhook
       image: ghcr.io/estahn/k8s-image-swapper:1.4.1
