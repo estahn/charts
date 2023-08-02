@@ -1,0 +1,19 @@
+{{ range .Values.extraManifests }}
+    {{- if eq "string" ( kindOf . ) }}
+        {{/* If manifest is a string, convert it back and forth from yaml to ensure good syntax */}}
+        {{- . | fromYaml | toYaml }}
+    {{- else }}
+        {{- . | toYaml }}
+    {{- end }}
+---
+{{ end }}
+
+{{ range .Values.extraManifestsTemplated }}
+    {{- if eq "string" ( kindOf . ) }}
+        {{- tpl . $ }}
+    {{- else }}
+        {{- tpl ( . | toYaml ) $ }}
+    {{- end }}
+---
+{{ end }}
+
