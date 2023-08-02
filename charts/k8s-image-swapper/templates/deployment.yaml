@@ -48,12 +48,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.awsSecretName }}
-                  key: {{ .Values.awsSecretKeys.accessKeyID }} 
+                  key: {{ .Values.awsSecretKeys.accessKeyID }}
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.awsSecretName }}
-                  key: {{ .Values.awsSecretKeys.secretAccessKey }} 
+                  key: {{ .Values.awsSecretKeys.secretAccessKey }}
             {{- end }}
             {{- with .Values.extraEnv }}
             {{- toYaml . | nindent 12 }}

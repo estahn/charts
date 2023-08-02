@@ -22,9 +22,6 @@
         }
       }
     },
-    "awsSecretName": {
-      "type": "string"
-    },
     "awsSecretKeys": {
       "type": "object",
       "additionalProperties": false,
@@ -39,6 +36,9 @@
           "default": "aws_secret_access_key"
         }
       }
+    },
+    "awsSecretName": {
+      "type": "string"
     },
     "certmanager": {
       "type": "object",
@@ -117,6 +117,36 @@
         "webhookURL": {
           "type": "string"
         }
+      }
+    },
+    "extraEnv": {
+      "type": "array",
+      "items": {}
+    },
+    "extraManifests": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "extraManifestsTemplated": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "type": "string"
+          }
+        ]
       }
     },
     "fullnameOverride": {
@@ -278,36 +308,6 @@
         "reinvocationPolicy": {
           "type": "string"
         }
-      }
-    },
-    "extraEnv": {
-      "type": "array",
-      "items": {}
-    },
-    "extraManifests": {
-      "type": "array",
-      "items": {
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "type": "string"
-          }
-        ]
-      }
-    },
-    "extraManifestsTemplated": {
-      "type": "array",
-      "items": {
-        "anyOf": [
-          {
-            "type": "object"
-          },
-          {
-            "type": "string"
-          }
-        ]
       }
     }
   }
