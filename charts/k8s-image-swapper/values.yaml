@@ -115,12 +115,13 @@ webhook:
   namespaceSelector: {}
   objectSelector: {}
 
-# If awsSecretName is set, the secret will be used as environment variables, see awsSecretKeys.
+# -- If set, the secret will be used as environment variables, see awsSecretKeys.
 awsSecretName: ""
-# Specify which keys to pull from the secret for the associated environment variables.
-# If using Hashicorp Vault Operator w/ AWS engine, use accessKeyID=access_key and secretAccessKey=secret_key
+# -- Specify which keys to pull from the .awsSecretName secret for the associated environment variables.
 awsSecretKeys:
+  # -- If using Hashicorp Vault Operator w/ AWS engine, use `access_key`
   accessKeyID: "aws_access_key_id"
+  # -- If using Hashicorp Vault Operator w/ AWS engine, use `secret_key`
   secretAccessKey: "aws_secret_access_key"
 
 # Private registries are supported via imagePullSecrets on Pods and ServiceAccounts.
@@ -154,15 +155,15 @@ dev:
   enabled: false
   webhookURL: https://xxx.ngrok.io
 
-# Additional environment variables to be defined on the container
+# -- Additional environment variables to be defined on the container
 # Follows the same syntax as containers.env in a Pod v1 API
 extraEnv: []
 
-# Array of addiitonal manifests to be deployed
+# -- Additional manifests to be deployed
 # Can be either a full object OR a string containing valid YAML
 extraManifests: []
 
-# Array of addiitonal manifests to be deployed. These will be passed through the templating engine
+# -- Additional manifests to be deployed. These will be passed through the templating engine
 # Useful if you need to use values from this chart in your manifests
 extraManifestsTemplated: []
 #  - kind: ConfigMap

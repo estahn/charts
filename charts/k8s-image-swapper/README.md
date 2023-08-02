@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.7.0](https://img.shields.io/badge/Version-1.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.1](https://img.shields.io/badge/AppVersion-1.4.1-informational?style=flat-square)
+![Version: 1.8.0](https://img.shields.io/badge/Version-1.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.1](https://img.shields.io/badge/AppVersion-1.4.1-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -21,7 +21,10 @@ Mirror images into your own registry and swap image references automatically.
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| awsSecretName | string | `""` |  |
+| awsSecretKeys | object | `{"accessKeyID":"aws_access_key_id","secretAccessKey":"aws_secret_access_key"}` | Specify which keys to pull from the .awsSecretName secret for the associated environment variables. |
+| awsSecretKeys.accessKeyID | string | `"aws_access_key_id"` | If using Hashicorp Vault Operator w/ AWS engine, use `access_key` |
+| awsSecretKeys.secretAccessKey | string | `"aws_secret_access_key"` | If using Hashicorp Vault Operator w/ AWS engine, use `secret_key` |
+| awsSecretName | string | `""` | If set, the secret will be used as environment variables, see awsSecretKeys. |
 | certmanager.enabled | bool | `false` |  |
 | commonLabels | object | `{}` | Labels that will be added on all the resources (not in selectors) |
 | config.dryRun | bool | `true` |  |
@@ -34,6 +37,9 @@ Mirror images into your own registry and swap image references automatically.
 | deployment.annotations | object | `{}` |  |
 | dev.enabled | bool | `false` |  |
 | dev.webhookURL | string | `"https://xxx.ngrok.io"` |  |
+| extraEnv | list | `[]` | Additional environment variables to be defined on the container Follows the same syntax as containers.env in a Pod v1 API |
+| extraManifests | list | `[]` | Additional manifests to be deployed Can be either a full object OR a string containing valid YAML |
+| extraManifestsTemplated | list | `[]` | Additional manifests to be deployed. These will be passed through the templating engine Useful if you need to use values from this chart in your manifests |
 | fullnameOverride | string | `""` |  |
 | hostNetwork | bool | `false` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
