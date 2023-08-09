@@ -1,5 +1,5 @@
 {{- if .Values.pdb.enabled }}
-apiVersion: {{ template "k8s-image-swapper.podDisruptionBudget.apiVersion" . }}
+apiVersion: {{ .Capabilities.APIVersions.Has "policy/v1" | ternary "policy/v1" "policy/v1beta1" }}
 kind: PodDisruptionBudget
 metadata:
   name: {{ include "k8s-image-swapper.fullname" . }}

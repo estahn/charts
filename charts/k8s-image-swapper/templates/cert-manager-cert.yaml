@@ -7,8 +7,12 @@ metadata:
     {{- include "k8s-image-swapper.labels" . | nindent 4 }}
 spec:
   secretName: {{ include "k8s-image-swapper.fullname" . }}-cert
+  commonName: {{ printf "%s.%s.svc" (include "k8s-image-swapper.fullname" .) .Release.Namespace }}
   dnsNames:
-  - {{ include "k8s-image-swapper.fullname" . }}.{{ .Release.Namespace }}.svc
+    - {{ printf "%s.%s.svc.%s" (include "k8s-image-swapper.fullname" .) .Release.Namespace .Values.clusterSuffix }}
+    - {{ printf "%s.%s.svc" (include "k8s-image-swapper.fullname" .) .Release.Namespace }}
+    - {{ printf "%s.%s" (include "k8s-image-swapper.fullname" .) .Release.Namespace }}
+    - {{ include "k8s-image-swapper.fullname" . }}
   issuerRef:
     name: {{ include "k8s-image-swapper.fullname" . }}-issuer
 {{- end -}}
