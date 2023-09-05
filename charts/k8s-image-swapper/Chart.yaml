@@ -2,7 +2,7 @@ apiVersion: v2
 name: k8s-image-swapper
 description: Mirror images into your own registry and swap image references automatically.
 type: application
-version: 1.7.0
+version: 1.8.0
 appVersion: 1.4.1
 home: https://github.com/estahn/charts/tree/main/charts/k8s-image-swapper
 keywords:
@@ -15,7 +15,7 @@ maintainers:
     name: estahn
 annotations:
   artifacthub.io/changes: |
-    - "Allow to set annotations for deployment"
+    - "Allow configure AWS secret and deploy extraManifests"
   artifacthub.io/images: |
     - name: k8s-image-webhook
       image: ghcr.io/estahn/k8s-image-swapper:1.4.1

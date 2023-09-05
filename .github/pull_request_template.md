@@ -19,5 +19,6 @@
 
 - [ ] Bump the chart version (`Chart.yaml` -> `version`)
 - [ ] JSON Schema updated (`values.schema.json`)
-- [ ] Update `README.md` via helm-docs
+- [ ] Update `README.md` via [helm-docs](https://github.com/norwoodj/helm-docs) (or `make prep`)
+- [ ] Run `pre-commit run --all-files` via [pre-commit](https://pre-commit.com/) (or `make prep`)
 - [ ] Update Artifacthub annotation (`Chart.yaml` -> `artifacthub.io/changes`, `artifacthub.io/images`)
