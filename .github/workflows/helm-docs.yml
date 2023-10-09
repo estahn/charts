@@ -20,7 +20,7 @@ jobs:
 
     - run: helm-docs
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
+    - uses: stefanzweifel/git-auto-commit-action@v5
       with:
         file_pattern: 'charts/**/README.md'
         commit_message: 'docs: update helm-docs'
