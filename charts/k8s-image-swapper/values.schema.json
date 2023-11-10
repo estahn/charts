@@ -105,6 +105,9 @@
       "properties": {
         "annotations": {
           "type": "object"
+        },
+        "priorityClassName": {
+          "type": "string"
         }
       }
     },
