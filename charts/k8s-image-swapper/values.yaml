@@ -116,6 +116,7 @@ certmanager:
 webhook:
   failurePolicy: Ignore
   reinvocationPolicy: Never
+  timeoutSeconds: 10
   namespaceSelector: {}
   objectSelector: {}
 
