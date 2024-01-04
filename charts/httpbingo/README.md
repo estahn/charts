@@ -26,6 +26,7 @@ A reasonably complete and well-tested golang port of httpbin, with zero dependen
 | image.repository | string | `"mccutchen/go-httpbin"` |  |
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
+| extraEnv | object | `{}` | See https://github.com/mccutchen/go-httpbin#configuration |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
 | ingress.enabled | bool | `false` |  |
