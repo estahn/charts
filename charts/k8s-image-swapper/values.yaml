@@ -12,9 +12,14 @@ image:
 
 containerPort: 8443
 
+kubeVersionOverride: ""
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+# -- Labels that will be added on all the resources (not in selectors)
+commonLabels: {}
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -28,6 +33,10 @@ serviceAccount:
 rbac:
   create: true
 
+deployment:
+  # Annotations to add to the deployment
+  annotations: {}
+
 # If true, create & use Pod Security Policy resources
 # https://kubernetes.io/docs/concepts/policy/pod-security-policy/
 podSecurityPolicy:
@@ -35,10 +44,12 @@ podSecurityPolicy:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -50,7 +61,8 @@ service:
   type: ClusterIP
   port: 443
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -68,6 +80,10 @@ autoscaling:
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
+
+pdb:
+  enabled: false
+  minAvailable: "1"
 
 nodeSelector: {}
 
@@ -89,13 +105,24 @@ patch:
   nodeSelector: {}
   resources: {}
 
+# You can use cert-manager to handle TLS cert creation and putting it into webhook cfg
+certmanager:
+  enabled: false
+
 webhook:
   failurePolicy: Ignore
   reinvocationPolicy: Never
   namespaceSelector: {}
   objectSelector: {}
 
+# -- If set, the secret will be used as environment variables, see awsSecretKeys.
 awsSecretName: ""
+# -- Specify which keys to pull from the .awsSecretName secret for the associated environment variables.
+awsSecretKeys:
+  # -- If using Hashicorp Vault Operator w/ AWS engine, use `access_key`
+  accessKeyID: "aws_access_key_id"
+  # -- If using Hashicorp Vault Operator w/ AWS engine, use `secret_key`
+  secretAccessKey: "aws_secret_access_key"
 
 # Private registries are supported via imagePullSecrets on Pods and ServiceAccounts.
 # k8s-image-swapper requires to read the secret containing the docker authentication details
@@ -127,3 +154,20 @@ config:
 dev:
   enabled: false
   webhookURL: https://xxx.ngrok.io
+
+# -- Additional environment variables to be defined on the container
+# Follows the same syntax as containers.env in a Pod v1 API
+extraEnv: []
+
+# -- Additional manifests to be deployed
+# Can be either a full object OR a string containing valid YAML
+extraManifests: []
+
+# -- Additional manifests to be deployed. These will be passed through the templating engine
+# Useful if you need to use values from this chart in your manifests
+extraManifestsTemplated: []
+#  - kind: ConfigMap
+#    metadata:
+#      name: "{{ .Release.Name }}-extra-config"
+#    data:
+#      key: value

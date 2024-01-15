@@ -1,20 +1,15 @@
-name: helm-docs-updater
+name: Update helm-docs
 
-on:
-  pull_request:
+on: pull_request
 
 env:
   HELM_DOCS_VERSION: "1.11.0"
-
-permissions:
-  contents: write
-  pull-requests: write
 
 jobs:
   helm-docs:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
     - name: Install binaries
@@ -22,11 +17,10 @@ jobs:
         mkdir -p $GITHUB_WORKSPACE/bin
         echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
         curl -sSL https://github.com/norwoodj/helm-docs/releases/download/v${{env.HELM_DOCS_VERSION}}/helm-docs_${{env.HELM_DOCS_VERSION}}_Linux_x86_64.tar.gz | tar xvfz - --overwrite -C $GITHUB_WORKSPACE/bin
+
     - run: helm-docs
-    - uses: peter-evans/create-pull-request@v4
+
+    - uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        title: Updated helm-docs for ${{ github.head_ref }}
-        base: ${{ github.head_ref }}
-        branch: helm-docs-${{ github.head_ref }}
-        add-paths: |
-          charts/**/README.md
+        file_pattern: 'charts/**/README.md'
+        commit_message: 'docs: update helm-docs'

@@ -40,6 +40,11 @@ helm.sh/chart: {{ include "k8s-image-swapper.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.commonLabels }}
+{{- range $index, $content := .Values.commonLabels }}
+{{ $index }}: {{ tpl $content $ }}
+{{- end }}
+{{- end }}
 {{- end }}
 
 {{/*
@@ -48,6 +53,11 @@ Selector labels
 {{- define "k8s-image-swapper.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "k8s-image-swapper.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- if contains "/job-patch/" .Template.Name }}
+app.kubernetes.io/component: job-patch
+{{- else }}
+app.kubernetes.io/component: app
+{{- end }}
 {{- end }}
 
 {{/*
@@ -60,3 +70,21 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Return the appropriate apiVersion for pod disruption budget
+*/}}
+{{- define "k8s-image-swapper.podDisruptionBudget.apiVersion" -}}
+{{- if semverCompare "<1.21-0" (include "k8s-image-swapper.kubeVersion" $) -}}
+{{- print "policy/v1beta1" -}}
+{{- else -}}
+{{- print "policy/v1" -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Return the target Kubernetes version
+*/}}
+{{- define "k8s-image-swapper.kubeVersion" -}}
+  {{- default .Capabilities.KubeVersion.Version .Values.kubeVersionOverride }}
+{{- end -}}

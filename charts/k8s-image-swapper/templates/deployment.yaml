@@ -4,6 +4,10 @@ metadata:
   name: {{ include "k8s-image-swapper.fullname" . }}
   labels:
     {{- include "k8s-image-swapper.labels" . | nindent 4 }}
+  {{- with .Values.deployment.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -19,7 +23,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "k8s-image-swapper.selectorLabels" . | nindent 8 }}
+        {{- include "k8s-image-swapper.labels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -37,23 +41,33 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.awsSecretName }}
+          {{- if or .Values.awsSecretName .Values.extraEnv }}
           env:
+            {{- if .Values.awsSecretName }}
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.awsSecretName }}
-                  key: aws_access_key_id
+                  key: {{ .Values.awsSecretKeys.accessKeyID }}
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.awsSecretName }}
-                  key: aws_secret_access_key
+                  key: {{ .Values.awsSecretKeys.secretAccessKey }}
+            {{- end }}
+            {{- with .Values.extraEnv }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           {{- end }}
           args:
             - --config=/.k8s-image-swapper.yaml
+            {{- if .Values.certmanager.enabled }}
+            - --tls-cert-file=/usr/local/certificates/tls.crt
+            - --tls-key-file=/usr/local/certificates/tls.key
+            {{- else }}
             - --tls-cert-file=/usr/local/certificates/cert
             - --tls-key-file=/usr/local/certificates/key
+            {{- end }}
             - --listen-address=:{{ .Values.containerPort }}
           ports:
             - name: https
@@ -76,7 +90,7 @@ spec:
               subPath: config.yaml
               mountPath: /.k8s-image-swapper.yaml
               readOnly: true
-            {{- if .Values.patch.enabled }}
+            {{- if or .Values.patch.enabled .Values.certmanager.enabled }}
             - name: webhook-cert
               mountPath: "/usr/local/certificates/"
               readOnly: true
@@ -89,6 +103,11 @@ spec:
         - name: webhook-cert
           secret:
             secretName: {{ template "k8s-image-swapper.fullname". }}
+        {{- end }}
+        {{- if .Values.certmanager.enabled }}
+        - name: webhook-cert
+          secret:
+            secretName: {{ template "k8s-image-swapper.fullname". }}-cert
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

@@ -1,0 +1,13 @@
+{{- if .Values.pdb.enabled }}
+apiVersion: {{ template "k8s-image-swapper.podDisruptionBudget.apiVersion" . }}
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "k8s-image-swapper.fullname" . }}
+  labels:
+    {{- include "k8s-image-swapper.labels" . | nindent 4 }}
+spec:
+  minAvailable: {{ .Values.pdb.minAvailable }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "k8s-image-swapper.fullname" . }}
+{{- end }}

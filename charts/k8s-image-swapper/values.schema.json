@@ -22,8 +22,34 @@
         }
       }
     },
+    "awsSecretKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Specify which keys to pull from the .awsSecretName secret for the associated environment variables.",
+      "properties": {
+        "accessKeyID": {
+          "type": "string",
+          "default": "aws_access_key_id"
+        },
+        "secretAccessKey": {
+          "type": "string",
+          "default": "aws_secret_access_key"
+        }
+      }
+    },
     "awsSecretName": {
       "type": "string"
+    },
+    "certmanager": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "commonLabels": {
+      "type": "object"
     },
     "config": {
       "type": "object",
@@ -74,6 +100,14 @@
     "containerPort": {
       "type": "integer"
     },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object"
+        }
+      }
+    },
     "dev": {
       "type": "object",
       "properties": {
@@ -83,6 +117,36 @@
         "webhookURL": {
           "type": "string"
         }
+      }
+    },
+    "extraEnv": {
+      "type": "array",
+      "items": {}
+    },
+    "extraManifests": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "extraManifestsTemplated": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "type": "string"
+          }
+        ]
       }
     },
     "fullnameOverride": {
@@ -146,6 +210,17 @@
         },
         "resources": {
           "type": "object"
+        }
+      }
+    },
+    "pdb": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "minAvailable": {
+          "type": "string"
         }
       }
     },
