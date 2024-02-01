@@ -295,6 +295,17 @@
         }
       }
     },
+    "test": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "image": {
+          "type": "string"
+        }
+      }
+    },
     "tolerations": {
       "type": "array",
       "items": {}
