@@ -52,6 +52,31 @@ entries:
   k8s-image-swapper:
   - annotations:
       artifacthub.io/changes: |
+        - "Allow test to be optional and specify image for test; fix HPA"
+      artifacthub.io/images: |
+        - name: k8s-image-webhook
+          image: ghcr.io/estahn/k8s-image-swapper:1.5.10
+    apiVersion: v2
+    appVersion: 1.5.10
+    created: "2024-02-01T18:08:12.377912016Z"
+    description: Mirror images into your own registry and swap image references automatically.
+    digest: 6fa6bd13d5f9cfd540ed3bbbf512eb8b9542a185d261e65c3ff362f813823f5c
+    home: https://github.com/estahn/charts/tree/main/charts/k8s-image-swapper
+    keywords:
+    - kubernetes
+    - kubernetes-webhook
+    - golang
+    - mutating-webhook
+    maintainers:
+    - email: enrico.stahn@gmail.com
+      name: estahn
+    name: k8s-image-swapper
+    type: application
+    urls:
+    - https://github.com/estahn/charts/releases/download/k8s-image-swapper-1.9.0/k8s-image-swapper-1.9.0.tgz
+    version: 1.9.0
+  - annotations:
+      artifacthub.io/changes: |
         - "Allow configure AWS secret and deploy extraManifests"
       artifacthub.io/images: |
         - name: k8s-image-webhook
@@ -813,4 +838,4 @@ entries:
     urls:
     - https://github.com/estahn/charts/releases/download/k8s-image-swapper-0.1.0/k8s-image-swapper-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-05T06:31:30.899551532Z"
+generated: "2024-02-01T18:08:12.378160463Z"
