@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.9.0](https://img.shields.io/badge/Version-1.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.10](https://img.shields.io/badge/AppVersion-1.5.10-informational?style=flat-square)
+![Version: 1.10.0](https://img.shields.io/badge/Version-1.10.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.10](https://img.shields.io/badge/AppVersion-1.5.10-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -26,7 +26,8 @@ Mirror images into your own registry and swap image references automatically.
 | awsSecretKeys.secretAccessKey | string | `"aws_secret_access_key"` | If using Hashicorp Vault Operator w/ AWS engine, use `secret_key` |
 | awsSecretName | string | `""` | If set, the secret will be used as environment variables, see awsSecretKeys. |
 | cacheVolume | object | `{"emptyDir":{}}` | The type of volume to be used for caching images |
-| certmanager.enabled | bool | `false` |  |
+| certmanager.enabled | bool | `false` | Should cert-manager be used to issue the certificate use by the k8s-image-swapper endpoints |
+| certmanager.issuerName | string | `nil` | If set, the name of the cert-manager issuer to use to issue the cert, otherwise a self-signed issuer will be created |
 | clusterSuffix | string | `"cluster.local"` | The DNS suffix of cluster addresses |
 | commonLabels | object | `{}` | Labels that will be added on all the resources (not in selectors) |
 | config.dryRun | bool | `true` |  |

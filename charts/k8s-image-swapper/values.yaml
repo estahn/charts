@@ -107,7 +107,10 @@ patch:
 
 # You can use cert-manager to handle TLS cert creation and putting it into webhook cfg
 certmanager:
+  # -- Should cert-manager be used to issue the certificate use by the k8s-image-swapper endpoints
   enabled: false
+  # -- If set, the name of the cert-manager issuer to use to issue the cert, otherwise a self-signed issuer will be created
+  issuerName:
 
 webhook:
   failurePolicy: Ignore

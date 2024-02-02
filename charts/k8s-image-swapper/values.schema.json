@@ -40,13 +40,22 @@
     "awsSecretName": {
       "type": "string"
     },
+    "cacheVolume": {
+      "type": "object"
+    },
     "certmanager": {
       "type": "object",
       "properties": {
         "enabled": {
           "type": "boolean"
+        },
+        "issuerName": {
+          "type": "null"
         }
       }
+    },
+    "clusterSuffix": {
+      "type": "string"
     },
     "commonLabels": {
       "type": "object"
@@ -298,11 +307,20 @@
     "test": {
       "type": "object",
       "properties": {
+        "affinity": {
+          "type": "object"
+        },
         "enabled": {
           "type": "boolean"
         },
         "image": {
           "type": "string"
+        },
+        "nodeSelector": {
+          "type": "object"
+        },
+        "tolerations": {
+          "type": "array"
         }
       }
     },
