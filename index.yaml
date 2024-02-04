@@ -52,6 +52,31 @@ entries:
   k8s-image-swapper:
   - annotations:
       artifacthub.io/changes: |
+        - "Fix bug in values schema"
+      artifacthub.io/images: |
+        - name: k8s-image-webhook
+          image: ghcr.io/estahn/k8s-image-swapper:1.5.10
+    apiVersion: v2
+    appVersion: 1.5.10
+    created: "2024-02-04T18:56:55.088038999Z"
+    description: Mirror images into your own registry and swap image references automatically.
+    digest: fd275d4082658f778aac9f1c3cd39caa0f9db937d63e45344773b7c19be4121e
+    home: https://github.com/estahn/charts/tree/main/charts/k8s-image-swapper
+    keywords:
+    - kubernetes
+    - kubernetes-webhook
+    - golang
+    - mutating-webhook
+    maintainers:
+    - email: enrico.stahn@gmail.com
+      name: estahn
+    name: k8s-image-swapper
+    type: application
+    urls:
+    - https://github.com/estahn/charts/releases/download/k8s-image-swapper-1.10.1/k8s-image-swapper-1.10.1.tgz
+    version: 1.10.1
+  - annotations:
+      artifacthub.io/changes: |
         - "Allow using an existing issuer for cert-manager certificate"
       artifacthub.io/images: |
         - name: k8s-image-webhook
@@ -863,4 +888,4 @@ entries:
     urls:
     - https://github.com/estahn/charts/releases/download/k8s-image-swapper-0.1.0/k8s-image-swapper-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-02T18:42:58.072135615Z"
+generated: "2024-02-04T18:56:55.088378161Z"
