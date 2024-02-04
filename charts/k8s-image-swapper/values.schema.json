@@ -50,7 +50,7 @@
           "type": "boolean"
         },
         "issuerName": {
-          "type": "null"
+          "type": "string"
         }
       }
     },
