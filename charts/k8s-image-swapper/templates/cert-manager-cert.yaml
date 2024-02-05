@@ -14,5 +14,6 @@ spec:
     - {{ printf "%s.%s" (include "k8s-image-swapper.fullname" .) .Release.Namespace }}
     - {{ include "k8s-image-swapper.fullname" . }}
   issuerRef:
+    kind: {{ .Values.certmanager.issuerKind }}
     name: {{ default (printf "%s-%s" (include "k8s-image-swapper.fullname" .) "issuer") .Values.certmanager.issuerName }}
 {{- end -}}
