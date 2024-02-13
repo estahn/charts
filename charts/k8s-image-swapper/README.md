@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.10.1](https://img.shields.io/badge/Version-1.10.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.10](https://img.shields.io/badge/AppVersion-1.5.10-informational?style=flat-square)
+![Version: 1.10.2](https://img.shields.io/badge/Version-1.10.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.10](https://img.shields.io/badge/AppVersion-1.5.10-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -38,6 +38,7 @@ Mirror images into your own registry and swap image references automatically.
 | config.target.aws.region | string | `"ap-southeast-2"` |  |
 | containerPort | int | `8443` |  |
 | deployment.annotations | object | `{}` |  |
+| deployment.priorityClassName | string | `""` |  |
 | dev.enabled | bool | `false` |  |
 | dev.webhookURL | string | `"https://xxx.ngrok.io"` |  |
 | extraEnv | list | `[]` | Additional environment variables to be defined on the container Follows the same syntax as containers.env in a Pod v1 API |
