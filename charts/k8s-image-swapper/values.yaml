@@ -108,7 +108,10 @@ patch:
 
 # You can use cert-manager to handle TLS cert creation and putting it into webhook cfg
 certmanager:
+  # -- Should cert-manager be used to issue the certificate use by the k8s-image-swapper endpoints
   enabled: false
+  # -- If set, the name of the cert-manager issuer to use to issue the cert, otherwise a self-signed issuer will be created
+  issuerName: ""
 
 webhook:
   failurePolicy: Ignore
@@ -172,3 +175,22 @@ extraManifestsTemplated: []
 #      name: "{{ .Release.Name }}-extra-config"
 #    data:
 #      key: value
+
+# -- The DNS suffix of cluster addresses
+clusterSuffix: cluster.local
+
+test:
+  # -- Should the test be included with the release
+  enabled: true
+  # -- Set affinity for the test pod
+  affinity: {}
+  # -- The image to use for running the test
+  image: busybox
+  # -- Set a node selector for the test pod
+  nodeSelector: {}
+  # -- Set tolerations for the test pod
+  tolerations: []
+
+# -- The type of volume to be used for caching images
+cacheVolume:
+  emptyDir: {}
