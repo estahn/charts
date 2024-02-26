@@ -10,6 +10,7 @@ metadata:
   {{- end }}
 webhooks:
   - name: k8s-image-swapper.github.io
+    timeoutSeconds: {{ .Values.webhook.timeoutSeconds }}
     failurePolicy: {{ .Values.webhook.failurePolicy }}
     reinvocationPolicy: {{ .Values.webhook.reinvocationPolicy }}
     namespaceSelector:

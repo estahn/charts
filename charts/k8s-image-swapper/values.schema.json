@@ -339,6 +339,9 @@
         },
         "reinvocationPolicy": {
           "type": "string"
+        },
+        "timeoutSeconds": {
+          "type": "integer"
         }
       }
     }
