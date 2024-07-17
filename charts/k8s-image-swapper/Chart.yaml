@@ -2,8 +2,8 @@ apiVersion: v2
 name: k8s-image-swapper
 description: Mirror images into your own registry and swap image references automatically.
 type: application
-version: 1.10.3
-appVersion: 1.5.10
+version: 1.10.4
+appVersion: 1.5.15
 home: https://github.com/estahn/charts/tree/main/charts/k8s-image-swapper
 keywords:
   - kubernetes
