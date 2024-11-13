@@ -49,6 +49,13 @@
         "enabled": {
           "type": "boolean"
         },
+        "issuerKind": {
+          "type": "string",
+          "enum": [
+            "ClusterIssuer",
+            "Issuer"
+          ]
+        },
         "issuerName": {
           "type": "string"
         }

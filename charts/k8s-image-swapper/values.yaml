@@ -110,6 +110,8 @@ patch:
 certmanager:
   # -- Should cert-manager be used to issue the certificate use by the k8s-image-swapper endpoints
   enabled: false
+  # -- Whether cert-manager should use an Issuer or ClusterIssuer to issue the cert
+  issuerKind: Issuer
   # -- If set, the name of the cert-manager issuer to use to issue the cert, otherwise a self-signed issuer will be created
   issuerName: ""
 
