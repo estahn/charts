@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.11.0](https://img.shields.io/badge/Version-1.11.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.10](https://img.shields.io/badge/AppVersion-1.5.10-informational?style=flat-square)
+![Version: 1.11.1](https://img.shields.io/badge/Version-1.11.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.10](https://img.shields.io/badge/AppVersion-1.5.10-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -62,6 +62,7 @@ Mirror images into your own registry and swap image references automatically.
 | patch.podAnnotations | object | `{}` |  |
 | patch.priorityClassName | string | `""` |  |
 | patch.resources | object | `{}` |  |
+| patch.tolerations | list | `[]` |  |
 | pdb.enabled | bool | `false` |  |
 | pdb.minAvailable | string | `"1"` |  |
 | podAnnotations | object | `{}` |  |
