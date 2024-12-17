@@ -105,6 +105,7 @@ patch:
   podAnnotations: {}
   nodeSelector: {}
   resources: {}
+  tolerations: []
 
 # You can use cert-manager to handle TLS cert creation and putting it into webhook cfg
 certmanager:
