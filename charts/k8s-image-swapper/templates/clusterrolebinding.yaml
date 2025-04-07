@@ -15,6 +15,6 @@ roleRef:
   name: {{ include "k8s-image-swapper.fullname" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ include "k8s-image-swapper.fullname" . }}
+    name: {{ include "k8s-image-swapper.serviceAccountName" . }}
     namespace: {{ .Release.Namespace }}
 {{- end -}}
