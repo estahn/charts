@@ -1,6 +1,6 @@
 # k8s-image-swapper
 
-![Version: 1.11.0](https://img.shields.io/badge/Version-1.11.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.10](https://img.shields.io/badge/AppVersion-1.5.10-informational?style=flat-square)
+![Version: 1.12.0](https://img.shields.io/badge/Version-1.12.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.5.10](https://img.shields.io/badge/AppVersion-1.5.10-informational?style=flat-square)
 
 Mirror images into your own registry and swap image references automatically.
 
@@ -52,6 +52,7 @@ Mirror images into your own registry and swap image references automatically.
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | kubeVersionOverride | string | `""` |  |
+| lifecycle | object | `{}` | Lifecycle hooks for the k8s-image-swapper container, for example a preStop sleep so the webhook keeps serving while its endpoint is removed |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | patch.enabled | bool | `true` |  |
@@ -78,6 +79,7 @@ Mirror images into your own registry and swap image references automatically.
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| terminationGracePeriodSeconds | string | `nil` | Optional duration in seconds the pod needs to terminate gracefully. Uses the Kubernetes default (30) when unset |
 | test.affinity | object | `{}` | Set affinity for the test pod |
 | test.enabled | bool | `true` | Should the test be included with the release |
 | test.image | string | `"busybox"` | The image to use for running the test |

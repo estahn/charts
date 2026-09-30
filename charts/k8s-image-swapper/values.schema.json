@@ -192,6 +192,9 @@
       "type": "array",
       "items": {}
     },
+    "lifecycle": {
+      "type": "object"
+    },
     "nameOverride": {
       "type": "string"
     },
@@ -313,6 +316,12 @@
           "type": "string"
         }
       }
+    },
+    "terminationGracePeriodSeconds": {
+      "type": [
+        "integer",
+        "null"
+      ]
     },
     "test": {
       "type": "object",
