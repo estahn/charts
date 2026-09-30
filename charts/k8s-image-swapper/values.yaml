@@ -58,6 +58,12 @@ securityContext:
   # runAsNonRoot: true
   # runAsUser: 1000
 
+# -- Lifecycle hooks for the k8s-image-swapper container, for example a preStop sleep so the webhook keeps serving while its endpoint is removed
+lifecycle: {}
+
+# -- Optional duration in seconds the pod needs to terminate gracefully. Uses the Kubernetes default (30) when unset
+terminationGracePeriodSeconds: null
+
 service:
   type: ClusterIP
   port: 443
